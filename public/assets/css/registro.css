@@ -1,0 +1,60 @@
+
+body{
+  background-image: url(../img/login.jpeg);
+  background-size: cover;
+  /* background-color: #26a69a; */
+}
+  
+.login{
+  margin-top: 100px;
+}
+
+.login .card{
+  background: rgba(0, 0, 0, .7)
+}
+
+#register > div label {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.login input{
+  font-size: 20px;
+  color: #fff;
+}
+
+.login ul li {
+  font-size: 16px;
+  color: red;
+}
+
+.card .card-content .card-title {
+  font-weight: 600;
+  text-align: center;
+  margin: 10px;
+}
+
+
+
+#register > div:nth-child(5){
+    text-align: center;
+    margin-top: 1.2em;
+}
+
+button,
+input[type="submit"]{
+    padding: 0 28px;
+    height: 54px;
+    font-size: 15px;
+    border-radius: 15px;
+    margin-top:15px;
+    background: #26a69a;
+    color: #fff;
+    border: 1px solid #26a69a;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+button:hover,
+input[type="submit"]:hover{background: #fff; color:#26a69a;}
+

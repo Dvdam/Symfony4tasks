@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if edit is defined %}
+        Editar Tarea
+    {% else %}
+        Crear Nueva Tarea
+    {% endif %}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/task.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+{{ include('includes/header.html.twig') }}
+
+<div class="row" id="task_page_creation">
+    <div class="section"></div>
+    <div class="row">
+        <h3 class="card-title center-align">
+            {% if edit is defined %}
+                Editar Tarea
+            {% else %}
+                Crear Nueva Tarea
+            {% endif %}
+        </h3>
+        <div class="col s12 l6 offset-l3">
+            <div class="card hoverable">
+                <div class="card-content">
+                    {{ form_start(form)}}
+                    {{ form_widget(form)}}
+                    {{ form_end(form)}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

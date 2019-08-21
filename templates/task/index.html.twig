@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Todas las Tareas {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/task.css') }}" rel="stylesheet"/>
+{% endblock %}
+{% block body %}
+{{ include('includes/header.html.twig') }}
+<div id="tasks_page" class="row">
+    <div class="section"></div>
+    <h3 class="center-align">Todas las Tareas ✅</h3>
+    <div class="section"></div>
+    <div class="card col s12 valign-wrapper">
+        {{ include('includes/task-list.html.twig') }}
+    </div>
+</div>
+{% endblock %}

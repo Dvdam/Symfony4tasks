@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ task.title}} {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/task.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+{{ include('includes/header.html.twig') }}
+
+<div id="task_page" class="row">
+    <div class="section"></div>
+    <div class="card col s12">
+        <h3 class="card-title center-align">{{ task.title}}</h3>
+        <ul id="task_page_created">
+            <li><a class="task_user"><i class="material-icons left">assignment_ind</i>{{task.user.name}} {{task.user.surname }} |</a></li>
+            <li><a class="task_date"><i class="material-icons left">date_range</i>{{task.createdAt|date('d-m-Y') }} |</a></li>
+
+            {% if task.priority == 'high' %} <li><a class="task_date"><i class="material-icons left">star</i>{{ 'Alta' }} |</a></li> {% endif %}
+            {% if task.priority == 'medium' %} <li><a class="task_date"><i class="material-icons left">star_half</i>{{ 'Media' }} |</a></li> {% endif %}
+            {% if task.priority == 'low' %} <li><a class="task_date"><i class="material-icons left">star_border</i>{{ 'Baja' }} |</a></li> {% endif %}
+
+            <li><a class="task_date"><i class="material-icons left">access_time</i>{{ task.hours}}h</a></li>
+            
+        </ul>
+       <div class="card-content">
+           <p>
+               {{ task.content }}
+           </p>
+       </div>
+    </div>
+</div>
+{% endblock %}

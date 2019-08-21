@@ -1,0 +1,50 @@
+{% if tasks|length >= 1 %}
+    <table class="responsive-table striped centered">
+        <thead class="card-title">
+            <tr>
+                <th>#</th>
+                <th>Tarea</th>
+                <th>Prioridad</th>
+                <th>Horas Presupuestadas</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for task in tasks %}
+            {% set counter = ( counter | default(0) ) + 1 %}
+                <tr>
+                    <td>{{ counter }}</td>
+                    <td>{{ task.title }}</td>
+                    <td>
+                        {% if task.priority == 'high' %}
+                            {{ 'Alta' }}
+                        {% endif %}
+                        {% if task.priority == 'medium' %}
+                            {{ 'Media' }}
+                        {% endif %}
+                        {% if task.priority == 'low' %}
+                            {{ 'Baja' }}
+                        {% endif %}
+                    </td>
+                    <td>{{ task.hours }}</td>
+                    <td class="task_actions">
+                        <a href="{{ path('task_detail', {'id':task.id}) }}" title="Ver" class="ver">
+                            <i class="material-icons left">remove_red_eye</i>
+                        </a>
+                        {% if app.user != null and task.user.id == app.user.id %}
+                        <a class="edit" href="{{ path('task_edit', {'id':task.id}) }}" title="Editar">
+                            <i class="material-icons left">edit</i>
+                        </a>
+                        <a class="delete" href="{{ path('task_delete', {'id':task.id}) }}" title="Borrar">
+                            <i class="material-icons left">delete</i>
+                        </a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p class="center-align" style="margin-left: auto; margin-right:auto;">No hay tareas disponibles en este momento</p>
+{% endif %}

@@ -1,0 +1,36 @@
+
+#task_page,
+#tasks_page { margin: 1em auto; max-width: 1000px; width: 100%; font: 18px/1.5 sans-serif; }
+
+.task_actions {
+    display: flex;
+    justify-content: center;
+}
+
+.task_actions {
+    display: flex;
+    justify-content: center;
+}
+
+.task_actions .ver { color: #26a69a;}
+.task_actions .edit { color: orange;}
+.task_actions .delete { color: red;}
+
+/* PAGE TASK */
+#task_page_created {
+    display: flex;
+    justify-content: center;
+}
+
+#task_page_created i.left {margin-right: 5px;}
+#task_page_created li {margin-right: 5px;}
+
+#task_page_created .material-icons {font-size: 20px;line-height: 1.5;}
+
+#task_page_created li a {color: #9c9c9c; font-size: 12px;}
+
+
+/* PAGE TASK CREATION */
+/* #task_page_creation {margin-top: 50px;} */
+
+#task_page_creation select, select {display: block;}

@@ -1,0 +1,17 @@
+<nav class="teal lighten-1">
+    <div class="nav-wrapper container">
+        <a class="brand-logo" href="{{ path('tasks')}}">Tareas Symfony</a>
+        <ul class="right hide-on-med-and-down" id="nav-mobile">
+            {% if app.user %}
+            <li><a href="{{ path('tasks')}}"><i class="material-icons left">home</i>Inicio</a></li>
+            <li><a href="{{ path('my_tasks')}}"><i class="material-icons left">dashboard</i>Mis Tareas</a></li>
+            <li><a href="{{ path('task_creation')}}"><i class="material-icons left">create</i>Crear Tareas</a></li>
+            <li><a href=""><i class="material-icons left">account_circle</i>{{ app.user.name ~ ' ' ~ app.user.surname }}</a></li>
+            <li><a href="{{ path('logout')}}"><i class="material-icons left">power_settings_new</i>Logout</a></li>
+            {% else %}
+            <li><a href="{{ path('login')}}"><i class="material-icons left">account_circle</i>Login</a></li>
+            <li><a href="{{ path('register')}}"><i class="material-icons left">perm_identity</i>Registro</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
